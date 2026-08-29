@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="SVG/Focus.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<title>Slides - Style 4</title>
+
+<style>
+
+html {
+-webkit-tap-highlight-color: transparent;
+scroll-behavior:smooth;}
+
+* {
+margin:0;
+padding:0;
+transition:0.3s;
+box-sizing:border-box;
+font-family: "Cormorant Garamond", serif;
+user-select:none;}
+
+body {
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+min-height:100vh;}
+
+.shelf-wrapper {
+position:relative;
+width:330px;
+height:330px;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+background:#FFE1C7;}
+
+.shelf1, .shelf2, .shelf3 {
+position:absolute;
+height:auto;
+object-fit:cover;}
+
+.shelf1 {
+bottom:-49px;
+width:460px;
+filter:drop-shadow(0 10px 15px rgba(117,52,0,0.6));}
+
+.shelf2 {
+top:5px;
+right:-10px;
+width:200px;
+filter:drop-shadow(0 8px 15px rgba(117,52,0,0.5));}
+
+.shelf3 {
+top:0;
+left:0;
+width:110px;
+filter:drop-shadow(0 2px 5px rgba(117,52,0,0.5));}
+
+.container {
+position:absolute;
+bottom:-20px;
+width:100%;
+height:300px;
+display:flex;
+justify-content:center;
+align-items:center;
+pointer-events:none;}
+
+.wrapper {
+position:relative;
+height:500px;
+display:flex;
+justify-content:start;
+align-items:center;
+pointer-events:none;
+transform:scale(0.5);
+transition:0.4s cubic-bezier(0.5,0,0.5,1);}
+
+.carousel {
+position:relative;
+padding:10px;
+display:flex;
+align-items:end;
+justify-content:center;
+gap:10px;
+flex-wrap:nowrap;
+list-style:none;}
+
+.card {
+position:relative;
+width:60px;
+border-radius:5px;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+pointer-events:auto;
+cursor:pointer;
+box-shadow:0 3px 5px rgba(0,0,0,0.5);
+transition:0.4s cubic-bezier(0.5,0,0.5,1);
+background:linear-gradient(var(--i) 60%, #000 100%);}
+
+.card .details-container {
+position:absolute;
+width:100%;
+height:220px;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.card .book {
+position:absolute;
+left:0;
+width:150px;
+height:90%;
+object-fit:cover;
+opacity:0;
+transform:translateY(20px);
+filter:drop-shadow(-1px 1px 4px rgba(255,255,255,0.3));}
+
+.card .details {
+position:absolute;
+right:0;
+width:150px;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+gap:10px;
+opacity:0;}
+
+.card .details * {
+display:flex;
+align-self:start;}
+
+.card h1 {
+position:absolute;
+top:60px;
+opacity:1;
+color:#FDEABC;
+font-weight:600;
+font-size:0.85rem;
+letter-spacing:5px;
+transition:0.4s;
+height:calc(100% - 90px);
+padding-top:5px;
+display:flex;
+align-items:center;
+justify-content:center;
+writing-mode:vertical-lr;
+text-orientation:upright;
+text-shadow:2px 2px 2px rgba(0,0,0,0.7);}
+
+.card .line {
+position:relative;
+width:30%;
+height:0.5px;
+border-radius:1px;
+background:#fff;
+box-shadow:0 1px 2px rgba(0,0,0,0.5);}
+
+.card h2, .card h3 {
+position:relative;
+color:#fff;
+font-weight:500;
+font-size:0.9rem;
+text-shadow:2px 2px 2px rgba(0,0,0,0.5);}
+
+.card h3 {
+font-size:0.7rem;}
+
+.card p {
+position:relative;
+width:75%;
+color:#fff;
+font-size:0.6rem;
+line-height:15px;}
+
+.card .button-container {
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+margin-top:10px;
+opacity:0;
+transform:translateY(10px);}
+
+.card button {
+position:relative;
+padding:5px;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+background:none;
+pointer-events:auto;
+cursor:pointer;
+transition:0.3s;
+border:1px solid rgba(255,255,255,0.5);}
+
+.card button span {
+position:relative;
+color:#fff;
+font-weight:300;
+font-size:0.6rem;
+padding-left:10px;}
+
+.card button .arrow {
+position:relative;
+width:15px;
+height:15px;
+border-radius:50%;
+background:rgba(255,255,255,0.1);}
+
+.card .icon {
+position:absolute;
+top:15px;
+width:30px;
+height:30px;
+opacity:1;
+border-radius:50%;
+background:rgba(255,255,255,0.05);
+border:0.5px solid rgba(255,255,255,0.4);}
+
+.card .decoration {
+position:absolute;
+bottom:5px;
+width:auto;
+height:20px;
+opacity:1;}
+
+.card.active {
+width:300px;}
+
+.card.active h1, .card.active .icon, .card.active .decoration {
+opacity:0;}
+
+.card.active .book {
+opacity:1;
+transform:translateY(0);
+transition:0.5s 0.3s;}
+
+.card.active .details {
+opacity:1;
+transition:0.4s 0.5s;}
+
+.card.active .button-container {
+opacity:1;
+transform:translateY(0);
+transition:0.5s 0.7s;;}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="shelf-wrapper">
+
+<img class="shelf2" src="Books/Shelf2.png">
+<img class="shelf3" src="Books/Shelf3.png">
+
+<section class="container">
+
+<img class="shelf1" src="Books/Shelf1.png">
+
+<div class="wrapper">
+
+<ul class="carousel"></ul>
+
+</div>
+
+</section>
+
+</div>
+
+<script src="JS/Slides4.js"></script>
+
+</body>
+
+</html>

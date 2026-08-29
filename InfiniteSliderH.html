@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horizontal Infinite Slider</title>
+
+<style>
+
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;}
+
+:root {
+--num:10;
+--width:100px;
+--height:140px;
+--gap:15px;
+--X:calc(var(--num) * (var(--width) + var(--gap))/2);}
+
+body {
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+min-height:100vh;}
+
+.main-container {
+position:absolute;
+width:330px;
+height:330px;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+user-select:none;
+pointer-events:none;
+background:linear-gradient(to bottom right, #200075, #000);}
+
+.wrapper {
+position:absolute;
+padding:calc(var(--gap)/2) 0;
+transform:scale(0.6) rotate(-30deg) skewX(30deg);
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;}
+
+.carousel {
+position:relative;
+list-style:none;
+display:flex;
+align-items:center;
+gap:var(--gap);
+padding:calc(var(--gap)/2) 0;}
+
+.right {
+transform:translateX(calc(-1*var(--X)));
+animation:move-ltr 8s linear infinite;}
+
+.left {
+transform:translateX(var(--X));
+animation:move-rtl 8s linear infinite;}
+
+.carousel .card {
+position:relative;
+width:var(--width);
+height:var(--height);
+border-radius:8px;
+transition:0.3s;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+background-image:var(--background);
+background-size:cover;
+background-position:center;
+border:1px solid rgba(255,255,255,0.5);
+box-shadow:-1px 4px 10px rgba(255,255,255,0.3);}
+
+@keyframes move-ltr {
+from {transform:translateX(calc(-1*var(--X)));}
+to {transform:translateX(var(--X));}}
+
+@keyframes move-rtl {
+from {transform:translateX(var(--X));}
+to {transform:translateX(calc(-1*var(--X)));}}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+<section class="wrapper"></section>
+
+</div>
+
+<script src="JS/InfiniteSliderH.js"></script>
+
+</body>
+
+</html>

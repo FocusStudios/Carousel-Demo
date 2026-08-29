@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circular</title>
+<link rel="icon" type="image/x-icon" href="SVG/Focus.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<style>
+
+html {
+-webkit-tap-highlight-color:transparent;
+scroll-behavior:smooth;
+user-select:none;}
+
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+transition:0.3s;
+font-weight:1000;
+font-style:normal;
+font-family:"Montserrat Alternates", serif;}
+
+:root {
+--fill:#ff3884;
+--shadow:rgba(255, 0, 98, 0.4);
+--Shadow:rgba(255, 0, 98, 0.3);}
+
+body {
+width:100vw;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;}
+
+.Container {
+position:absolute;
+width:330px;
+height:330px;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+pointer-events:none;
+overflow:hidden;
+background:#ffbad3;}
+
+.main-container {
+position:absolute;
+width:330px;
+height:330px;
+display:flex;
+align-items:center;
+justify-content:center;
+pointer-events:none;
+overflow:hidden;
+clip-path:path('M95.2647 258.312L28.3399 208.393C21.8384 203.543 21.8555 193.796 28.3739 188.969L203.55 59.2584C213.386 51.9748 226.767 51.7579 236.835 58.7189L301.039 103.113C307.728 107.738 308.042 117.512 301.664 122.556L130.642 257.811C120.324 265.972 105.809 266.177 95.2647 258.312Z');}
+
+.Wrapper {
+position:absolute;
+width:410px;
+height:850px;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+transform:scale(0.3) rotate(35deg) translate(-10px,-25px) skewX(-18deg);}
+
+.MockUp {
+position:absolute;
+width:100%;
+height:auto;
+filter:drop-shadow(0 6px 6px var(--shadow));}
+
+section {
+position:absolute;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+section:nth-child(1) {
+top:0;
+width:100%;
+height:100%;}
+
+section:nth-child(2) {
+bottom:0;
+left:0;
+width:70%;
+height:55%;
+padding-left:30px;
+flex-direction:column;
+gap:15px;}
+
+section:nth-child(3) {
+bottom:0;
+right:0;
+width:50%;
+height:50%;}
+
+.Background {
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+background:#ffbad3;}
+
+.image {
+position:absolute;
+width:98%;
+height:70%;
+object-fit:cover;
+opacity:0;
+transition:0.8s;
+mask-image:linear-gradient(to bottom, black 0%, black 40%, transparent 90%);
+-webkit-mask-image:linear-gradient(to bottom, black 0%, black 40%, transparent 90%);}
+
+.image.Active {
+opacity:1;}
+
+.wrapper {
+position:absolute;
+right:-112.5px;
+width:225px;
+height:225px;
+border-radius:50%;
+z-index:2;
+display:flex;
+align-items:center;
+justify-content:center;
+transform:scale(1.4);
+mask-image:linear-gradient(to right, black 0%, black 40%, transparent 50%);
+-webkit-mask-image:linear-gradient(to right, black 0%, black 40%, transparent 50%);}
+
+.carousel {
+position:absolute;
+width:200px;
+height:200px;
+list-style:none;
+transform:rotate(-120deg);
+animation:Rotate 24s linear forwards infinite;}
+
+.carousel li {
+position:absolute;
+width:200px;
+height:200px;
+border-radius:50%;
+transform:var(--i1);}
+
+.wrapper .section {
+position:absolute;
+top:39px;
+right:0;
+width:61px;
+height:61px;}
+
+.wrapper .path {
+position:absolute;
+width:100%;
+height:100%;
+transition:0.3s;
+background:var(--i2);
+background-size:cover;
+background-position:center;
+clip-path:path("M35.3044 1.64962C36.5736 0.584621 38.4699 0.747688 39.4964 2.04828C51.3116 17.0188 58.6 35.0584 60.5003 54.0349C60.6654 55.6835 59.4146 57.1181 57.7618 57.2336L13.8689 60.3029C12.2161 60.4185 10.7918 59.1704 10.5774 57.5275C9.47491 49.0819 6.23239 41.0564 1.15863 34.2153C0.171631 32.8845 0.329193 30.9973 1.59842 29.9323L35.3044 1.64962Z");}
+
+.wrapper .shadow {
+position:absolute;
+fill:var(--fill);
+opacity:0.5;
+filter:blur(1.5px);
+transform:translate(-2px,-1px);}
+
+.wrapper .section.active {
+transform:translate(4px,-3px) scale(1.25);}
+
+.badge {
+position:absolute;
+top:45px;
+left:30px;
+padding:7px 9px;
+border-radius:25px;
+gap:4px;
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+background:#fff;
+transform:scale(0.8);
+border:1.5px solid var(--shadow);
+box-shadow:0 1.5px 3px var(--shadow);
+animation:PopUp 0.4s 0.8s forwards;}
+
+.badge span {
+position:relative;
+font-size:0.6rem;
+color:var(--shadow);}
+
+.badge .icon {
+position:relative;
+width:12px;
+height:12px;
+fill:var(--shadow);}
+
+.Title {
+position:relative;
+width:100%;
+display:flex;
+align-self:start;
+flex-direction:column;
+transform:translateY(0);}
+
+.Title h1 {
+position:relative;
+width:100%;
+color:#ff3884;
+font-weight:1000;
+font-size:1.6rem;
+line-height:30px;
+text-shadow:0 2px 4px rgba(0,0,0,0.2);}
+
+.text {
+position:relative;
+width:80%;
+margin-top:10px;
+font-size:1.1rem;
+font-weight:400;
+line-height:25px;
+align-self:start;
+transform:translateY(0);}
+
+.button-container {
+position:relative;
+align-self:start;
+margin-top:10px;
+opacity:0;
+transform:scale(0.8);}
+
+.button-container {
+animation:PopUp 0.4s 1s forwards;}
+
+button {
+position:relative;
+padding:12px 20px;
+border-radius:30px;
+color:var(--fill);
+font-size:0.9rem;
+background:#fff;
+border:none;
+box-shadow:0 5px 10px var(--shadow);}
+
+@keyframes PopUp {
+0%{transform:scale(0.8);opacity:0;}
+50%{transform:scale(1.2);opacity:1;}
+100%{transform:scale(1);opacity:1;}}
+
+@keyframes Rotate {
+0%{transform:rotate(-120deg);}
+100%{transform:rotate(240deg);}}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="Container">
+
+<img class="MockUp" src="Icecreams/MockUp.png">
+
+<div class="main-container">
+
+<div class="Wrapper">
+
+<!-- Image -->
+
+<section>
+
+<div class="Background">
+
+<img class="image Active" src="Icecreams/icecream1.png" loading="lazy" alt="">
+<img class="image" src="Icecreams/icecream2.png" loading="lazy" alt="">
+<img class="image" src="Icecreams/icecream3.png" loading="lazy" alt="">
+<img class="image" src="Icecreams/icecream4.png" loading="lazy" alt="">
+<img class="image" src="Icecreams/icecream5.png" loading="lazy" alt="">
+<img class="image" src="Icecreams/icecream6.png" loading="lazy" alt="">
+<img class="image" src="Icecreams/icecream7.png" loading="lazy" alt="">
+<img class="image" src="Icecreams/icecream8.png" loading="lazy" alt="">
+
+<div class="badge">
+
+<svg class="icon" width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.43063 0.681676C1.68396 0.227226 1.81062 0 2 0C2.18938 0 2.31604 0.227224 2.56936 0.681672L2.6349 0.799244C2.7069 0.928384 2.74288 0.992956 2.79902 1.03556C2.85514 1.07816 2.92502 1.09398 3.06482 1.12561L3.1921 1.1544C3.68402 1.26571 3.93 1.32136 3.98852 1.50954C4.04704 1.69772 3.87936 1.89382 3.54398 2.28598L3.45722 2.38744C3.36192 2.49888 3.31426 2.5546 3.29282 2.62354C3.2714 2.69248 3.2786 2.76682 3.293 2.91552L3.30612 3.05088C3.35682 3.57412 3.38218 3.83574 3.22898 3.95204C3.07576 4.06832 2.84546 3.9623 2.38486 3.75024L2.2657 3.69536C2.13482 3.6351 2.06938 3.60496 2 3.60496C1.93062 3.60496 1.86518 3.6351 1.7343 3.69536L1.61514 3.75024C1.15454 3.9623 0.924236 4.06832 0.771028 3.95204C0.617824 3.83574 0.643176 3.57412 0.69388 3.05088L0.706996 2.91552C0.721404 2.76682 0.728608 2.69248 0.707172 2.62354C0.685736 2.5546 0.638084 2.49888 0.542784 2.38744L0.45602 2.28598C0.12065 1.89382 -0.0470356 1.69772 0.0114844 1.50954C0.0700044 1.32136 0.315972 1.26571 0.807908 1.1544L0.935176 1.12561C1.07497 1.09398 1.14486 1.07816 1.20099 1.03556C1.25711 0.992956 1.2931 0.928388 1.36509 0.799244L1.43063 0.681676Z"/>
+</svg>
+
+<span>Best Seller</span>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Text -->
+
+<section>
+
+<div class="Title">
+
+<h1>Strawberry</h1>
+<h1>Ice Cream</h1>
+
+</div>
+
+<p class="text">Strawberry ice cream mixed with small pieces of fresh strawberries.</p>
+
+<div class="button-container">
+<button>Try Now</button>
+</div>
+
+</section>
+
+<!-- Carousel -->
+
+<section>
+
+<div class="wrapper">
+
+<ul class="carousel"></ul>
+
+</div>
+
+</section>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="JS/Circular.js"></script>
+
+</body>
+
+</html>

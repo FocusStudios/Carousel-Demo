@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slides - Style 2</title>
+<link rel="stylesheet" href="CSS/Gentle.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+html {
+-webkit-tap-highlight-color:transparent;
+scroll-behavior:smooth;}
+
+* {
+margin:0;
+padding:0;
+transition:0.3s;
+box-sizing:border-box;}
+
+body {
+width:100vw;
+height:100vh;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.container {
+position:absolute;
+width:330px;
+height:330px;
+border-radius:20px;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(#FBD2DA,#FF99AD);}
+
+.wrapper {
+width:360px;
+height:360px;
+margin:50px 0;
+display:flex;
+align-items:center;
+justify-content:center;
+transform:scale(0.9);
+pointer-events:none;}
+
+.carousel {
+width:100%;
+height:200px;
+padding:0 6px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-wrap:nowrap;
+gap:6px;}
+
+.card {
+position:relative;
+height:100%;
+--i1:70%;
+--i2:18%;
+--i3:12%;
+--i4:58%;
+--i5:52%;
+--i6:6%;
+list-style:none;
+border-radius:10px;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+transition:0.5s;
+background:url("Flowers/card.png");
+background-size:cover;
+background-position:center;
+box-shadow:0 5px 15px rgba(128,0,43,0.3);}
+
+.card .image {
+position:absolute;
+width:auto;
+height:75%;
+object-fit:cover;
+transition:0.5s;
+transform:translateX(0);
+filter:drop-shadow(0 2px 3px rgba(0,0,0,0.2));}
+
+.card.active .image {
+transform:translateX(-70px);}
+
+.card .details {
+position:absolute;
+right:0;
+width:140px;
+height:100%;
+padding:45px 20px 20px 20px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+gap:8px;
+opacity:0;
+transition:0.2s;}
+
+.card h1 {
+position:relative;
+opacity:0;
+color:#57001A;
+font-size:1.2rem;
+font-weight:800;
+text-align:center;
+transform:translateY(5px);
+font-family: "Cormorant Garamond", serif;}
+
+.card h2 {
+position:relative;
+opacity:0;
+color:#FF85A9;
+font-size:0.9rem;
+font-weight:1000;
+text-align:center;
+transform:translateY(5px);
+font-family: "Tangerine", cursive;}
+
+.card .decoration {
+position:relative;
+width:95px;
+height:5px;
+opacity:0;
+transform:translateY(5px);}
+
+.card p, .card .badge span {
+position:relative;
+color:#57001A;
+font-size:0.6rem;
+font-weight:800;
+font-family: "Cormorant Garamond", serif;}
+
+.card p {
+opacity:0;
+line-height:14px;
+transform:translateY(5px);}
+
+.card .price {
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:25px;}
+
+.card .button-container {
+position:relative;
+display:flex;
+opacity:0;
+transform:scale(0.8);}
+
+.card button {
+position:relative;
+padding:6px 16px;
+border-radius:30px;
+display:flex;
+border:none;
+transition:0.3s;
+background:#fff;
+box-shadow:0 2px 3px rgba(255,133,169,0.5);}
+
+.card button img {
+position:relative;
+width:14px;
+height:14px;}
+
+.card h3 {
+opacity:0;
+color:#FF85A9;
+font-size:1.5rem;
+font-weight:800;
+transform:translateY(5px);
+font-family: "Cormorant Garamond", serif;}
+
+.card .badge {
+position:absolute;
+top:10px;
+right:10px;
+padding:3px 6px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:3px;
+opacity:0;
+border-radius:30px;
+transform:scale(0.8);
+background:rgba(255,133,169,0.2);
+box-shadow:0 2px 3px rgba(255,133,169,0.4);}
+
+.card .badge img {
+position:relative;
+width:8px;
+height:8px;}
+
+.card.active .details {
+opacity:1;}
+
+.card.active h1, .card.active h2 {
+opacity:1;
+transform:translateY(0);
+transition:0.4s 0.9s;}
+
+.card.active .decoration, .card.active p {
+opacity:1;
+transform:translateY(0);
+transition:0.4s 1.1s;}
+
+.card.active h3 {
+opacity:1;
+transform:translateY(0);
+transition:0.4s 1.2s;}
+
+.card.active .button-container {
+animation:PopUp 0.5s 1.3s forwards;}
+
+.card.active .badge {
+animation:PopUp 0.5s 1.5s forwards;}
+
+@keyframes PopUp {
+0%{transform:scale(0.8);opacity:0;}
+50%{transform:scale(1.2);opacity:1;}
+100%{transform:scale(1);opacity:1;}}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<section class="wrapper">
+
+<ul class="carousel"></ul> 
+
+</section>
+
+</div>
+
+<script src="JS/Slides2.js"></script>
+
+</body>
+
+</html>

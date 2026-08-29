@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rotating Carousel</title>
+
+<style>
+
+html {
+-webkit-tap-highlight-color:transparent;
+scroll-behavior:smooth;}
+
+* {
+margin:0;
+padding:0;
+transition:0.4s;
+box-sizing:border-box;
+font-family:Sans-serif;}
+
+body {
+width:100vw;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;}
+
+.main-container {
+position:absolute;
+width:330px;
+height:330px;
+border-radius:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+pointer-events:none;
+background:linear-gradient(to bottom right, #130840, #000);}
+
+.container {
+position:absolute;
+display:flex;
+justify-content:center;
+align-items:center;
+transform:scale(0.4);}
+
+.slider {
+position:relative;
+width:280px;
+height:450px;
+list-style:none;
+pointer-events:none;
+transform-style:preserve-3d;
+animation:Rotate 18s linear infinite;}
+
+.slider .slide {
+position:absolute;
+width:100%;
+height:100%;
+transform-origin:center;
+transform-style:preserve-3d;
+transform:rotateY(calc(var(--i)*30deg)) translateZ(600px);}
+
+.slider .slide .card {
+position:absolute;
+width:100%;
+height:100%;
+border-radius:15px;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:var(--gradient);
+box-shadow:0 0 20px var(--shadow);}
+
+.slider .slide:nth-child(1) .card, .slider .slide:nth-child(5) .card, .slider .slide:nth-child(9) .card {
+--border:rgba(0,160,255,0.8);
+--Shadow:rgba(0,160,255,0.4);
+--shadow:rgba(0,160,255,0.3);
+--gradient:linear-gradient(to bottom right, #00B5FF, #003FFF);}
+
+.slider .slide:nth-child(2) .card, .slider .slide:nth-child(6) .card, .slider .slide:nth-child(10) .card {
+--border:rgba(195,76,255,0.8);
+--Shadow:rgba(195,76,255,0.4);
+--shadow:rgba(195,76,255,0.3);
+--gradient:linear-gradient(to bottom right, #BC5CFE, #7626EE);}
+
+.slider .slide:nth-child(3) .card, .slider .slide:nth-child(7) .card, .slider .slide:nth-child(11) .card {
+--border:rgba(0,63,255,0.8);
+--Shadow:rgba(0,63,255,0.4);
+--shadow:rgba(0,63,255,0.4);
+--gradient:linear-gradient(to bottom right, #4B6EFB, #000ECC);}
+
+.slider .slide:nth-child(4) .card, .slider .slide:nth-child(8) .card, .slider .slide:nth-child(12) .card {
+--border:rgba(138,73,255,0.8);
+--Shadow:rgba(138,73,255,0.4);
+--shadow:rgba(138,73,255,0.3);
+--gradient:linear-gradient(to bottom right, #A16BFF, #5E00FF);}
+
+.slider .slide.active .card {
+transform:scale(1.15);}
+
+.slide .image {
+position:absolute;
+width:calc(100% - 2px);
+height:calc(100% - 2px);
+border-radius:14px;
+object-fit:cover;}
+
+.badge {
+position:absolute;
+top:20px;
+left:20px;
+padding:6px 8px;
+border-radius:5px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:5px;
+outline:0.5px solid var(--shadow);
+box-shadow:0 0 20px var(--shadow);
+background:linear-gradient(to right, transparent, var(--shadow));}
+
+.badge .icon {
+position:relative;
+width:12px;
+height:12px;}
+
+.badge span {
+position:relative;
+color:#fff;
+font-size:0.5rem;
+font-weight:600;}
+
+.like {
+position:absolute;
+top:10px;
+right:10px;
+fill:none;
+stroke:#fff;
+transition:0.3s;}
+
+footer {
+position:absolute;
+bottom:0;
+width:100%;
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:8px;}
+
+footer .details {
+position:relative;
+display:flex;
+flex-direction:column;
+gap:4px;}
+
+.details h1 {
+position:relative;
+color:#fff;
+font-size:1.1rem;
+font-weight:1000;}
+
+.details h2 {
+position:relative;
+color:#CEC7FF;
+font-size:0.6rem;
+font-weight:400;}
+
+.features {
+position:relative;
+display:flex;
+flex-direction:column;
+gap:5px;}
+
+.features .line {
+position:relative;
+width:100%;
+height:0.1px;
+opacity:0.2;
+border-radius:1px;
+background:#fff;}
+
+.features ul {
+position:relative;
+padding:5px 15px;
+list-style:none;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:20px;}
+
+.features ul li {
+position:relative;
+display:flex;
+align-items:center;
+gap:8px;}
+
+.vline {
+position:absolute;
+height:100%;
+width:0.1px;
+opacity:0.2;
+border-radius:1px;
+background:#fff;}
+
+.vline:nth-child(1) {
+left:-10px;}
+
+.vline:nth-child(2) {
+right:-10px;}
+
+.features ul li .icon {
+position:relative;
+width:15px;
+height:15px;}
+
+.features ul li span {
+position:relative;
+color:#fff;
+font-size:0.4rem;
+font-weight:400;
+width:10%;}
+
+footer .price {
+position:relative;
+display:flex;
+padding-top:5px;}
+
+footer .price h3 {
+position:relative;
+color:#fff;
+font-size:1.1rem;
+font-weight:1000;}
+
+footer .price button {
+position:relative;
+margin-left:auto;
+padding:8px 10px;
+border-radius:5px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:5px;
+border:none;
+transition:0.3s;
+background:var(--gradient);
+box-shadow:0 2px 10px var(--Shadow);}
+
+footer .price button span {
+position:relative;
+color:#fff;
+font-size:0.5rem;
+font-weight:600;}
+
+footer .price button .icon {
+position:relative;
+width:12px;
+height:12px;}
+
+@keyframes Rotate {
+0%{transform:perspective(4000px) rotateY(0deg);}
+100%{transform:perspective(4000px) rotateY(360deg);}}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+<div class="container">
+
+<ul class="slider"></ul>
+
+</div>
+
+</div>
+
+<script src="JS/Rotating.js"></script>
+
+</body>
+
+</html>

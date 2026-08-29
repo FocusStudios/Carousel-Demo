@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horizontal Slider</title>
+
+<style>
+
+html {
+-webkit-tap-highlight-color:transparent;
+scroll-behavior:smooth;}
+
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Sans-serif;
+user-select:none;
+transition:0.3s;}
+
+body {
+width:100vw;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;}
+
+img {
+pointer-events:none;}
+
+.wrapper {
+position:absolute;
+width:330px;
+height:330px;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+border-radius:20px;
+pointer-events:none;
+background-image:url(Shoes/Pattern.svg);}
+
+.container {
+position:absolute;
+display:flex;
+justify-content:center;
+align-items:center;
+transform:scale(0.6);}
+
+.slider {
+position:absolute;
+width:300px;
+height:300px;
+display:flex;
+justify-content:center;
+align-items:center;
+list-style:none;}
+
+.slide {
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:12px;
+background:var(--gradient);
+transition:all 0.5s, z-index 0s 0.1s;
+outline:1px solid rgba(255,255,255,0.3);
+box-shadow:0 10px 20px rgba(0,0,0,0.3);}
+
+.slide:nth-child(1) {
+z-index:0;
+filter:brightness(40%);
+transform:translateX(0) scale(0.4);}
+
+.slide:nth-child(2) {
+z-index:1;
+filter:brightness(60%);
+transform:translateX(-140px) scale(0.6);}
+
+.slide:nth-child(3) {
+z-index:2;
+filter:brightness(80%);
+transform:translateX(-70px) scale(0.8);}
+
+.slide:nth-child(4) {
+z-index:3;
+filter:brightness(100%);
+transform:translateX(0) scale(1);}
+
+.slide:nth-child(5) {
+z-index:2;
+filter:brightness(80%);
+transform:translateX(70px) scale(0.8);}
+
+.slide:nth-child(6) {
+z-index:1;
+filter:brightness(60%);
+transform:translateX(140px) scale(0.6);}
+
+.slide:nth-child(n+7) {
+z-index:0;
+filter:brightness(40%);
+transform:translateX(0) scale(0.4);}
+
+.image {
+position:absolute;
+top:20px;
+width:150px;
+height:150px;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.image img {
+position:absolute;
+top:0;
+width:100%;
+height:100%;
+object-fit:cover;}
+
+.image .shadow {
+position:absolute;
+bottom:10%;
+width:140px;
+height:20px;
+border-radius:50%;
+filter:blur(10px);
+background:rgba(0,0,0,0.2);}
+
+.image.adidas .shadow {
+bottom:10%;
+background:rgba(0,0,0,0.3);}
+
+.image.nike .shadow {
+bottom:-10%;}
+
+.image.puma .shadow {
+bottom:0%;
+background:rgba(0,0,0,0.2);}
+
+.info {
+position:absolute;
+bottom:0;
+width:100%;
+gap:10px;
+padding:20px;
+display:flex;
+flex-direction:column;}
+
+.details {
+position:relative;
+width:100%;
+display:flex;}
+
+.details .description, .details .price {
+position:relative;
+display:flex;
+flex-direction:column;
+gap:5px;}
+
+.details .description {
+align-items:start;}
+
+.details .price {
+align-items:end;
+margin-left:auto;}
+
+.details .price h1 {
+position:relative;
+color:#fff;
+font-size:1.1rem;
+font-weight:600;
+text-shadow:0 2px 4px rgba(0,0,0,0.3);}
+
+.details .price h2 {
+position:relative;
+color:#CACACA;
+font-size:0.7rem;
+font-weight:500;
+text-decoration:line-through;}
+
+.details .description h3 {
+position:relative;
+color:#fff;
+font-size:0.9rem;
+font-weight:600;
+text-shadow:0 2px 4px rgba(0,0,0,0.3);}
+
+.details .description span {
+position:relative;
+color:#fff;
+font-size:0.7rem;
+font-weight:300;
+text-shadow:0 1px 2px rgba(0,0,0,0.3);}
+
+.size {
+position:relative;
+width:100%;
+display:flex;}
+
+.size-container {
+position:relative;
+display:flex;
+flex-direction:column;
+gap:10px;}
+
+.line {
+position:relative;
+width:100%;
+height:0.1px;
+border-radius:1px;
+background:rgba(255,255,255,0.3);}
+
+.size-container span {
+position:relative;
+color:#fff;
+font-size:0.5rem;
+font-weight:500;}
+
+.size-container ul {
+position:relative;
+display:flex;
+gap:5px;
+list-style:none;}
+
+.size-container ul li {
+position:relative;
+display:flex;
+padding:6px 10px;
+border-radius:2px;
+color:#fff;
+font-size:0.6rem;
+font-weight:1000;
+transition:0.3s;
+background:rgba(255,255,255,0.1);}
+
+.size-container ul li.active {
+color:var(--color);
+background:#fff;
+box-shadow:0 2px 3px rgba(0,0,0,0.2);}
+
+.size .button-container {
+position:relative;
+display:flex;
+align-self:end;
+margin-left:auto;
+opacity:0;
+transform:scale(0.8);}
+
+.size button {
+position:relative;
+display:flex;
+padding:6px 18px;
+border-radius:30px;
+border:none;
+background:#fff;
+transition:0.3s;
+box-shadow:0 3px 5px rgba(0,0,0,0.3);}
+
+.off {
+position:absolute;
+top:-12px;
+right:20px;
+width:60px;
+height:60px;
+opacity:0;
+transform:scale(0.6);
+filter:drop-shadow(0 3px 3px rgba(0,0,0,0.3));}
+
+.logo {
+position:absolute;
+top:15px;
+left:15px;
+width:40px;
+height:40px;
+filter:drop-shadow(0 2px 2px rgba(0,0,0,0.2));}
+
+.arrows {
+position:absolute;
+height:45px;
+width:345px;
+display:flex;
+gap:255px;
+z-index:1000;}
+
+.arrows img {
+width:45px;
+height:45px;
+border-radius:50%;
+cursor:pointer;
+transition:0.3s;
+backdrop-filter:blur(10px);
+background:rgba(0,0,0,0.5);
+box-shadow:0 3px 6px rgba(0,0,0,0.2);}
+
+.slide:nth-child(4) .off {
+animation:PopUp 0.5s 0.5s forwards;}
+
+.slide:nth-child(4) .size .button-container {
+animation:PopUp 0.5s 0.8s forwards;}
+
+.right.active {
+animation:Click 0.4s forwards;}
+
+@keyframes PopUp {
+0%{transform:scale(0.6);opacity:1;}
+50%{transform:scale(1.2);opacity:1;}
+100%{transform:scale(1);opacity:1;}}
+
+@keyframes Click {
+0%{transform:scale(1);}
+50%{transform:scale(0.8);}
+100%{transform:scale(1);}}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<div class="container">
+
+<ul class="slider"></ul>
+
+<section class="arrows">
+
+<img class="left" src="Shoes/left-arrow.svg">
+<img class="right" src="Shoes/right-arrow.svg">
+
+</section>
+
+</div>
+
+</div>
+
+<script src="JS/Slider.js"></script>
+
+</body>
+
+</html>
