@@ -121,4 +121,4 @@ cards.forEach((card, i) => {
 
 demo();
 
-setInterval(() => {demo();},18000);
+setInterval(() => {demo();},17000);
