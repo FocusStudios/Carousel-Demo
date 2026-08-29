@@ -4,8 +4,8 @@ const slider = document.querySelector(".slider");
 
 const slides = [
 
- {gradient: "linear-gradient(#D6D6D6,#606060)", color: "#606060", brand: "adidas", image: "Shoes/shoes1.png", Title: "Running Shoes", Color: "Black", price1: "£49", price2: "£84", off: "Shoes/50off.svg", display: "flex", logo: "Shoes/adidas.svg", activeSize: 9},
- {gradient: "linear-gradient(#A7A7A7,#666666)", color: "#666666", brand: "adidas", image: "Shoes/shoes2.png", Title: "Running Shoes", Color: "Grey", price1: "£71", price2: "£89", off: "Shoes/50off.svg", display: "none", logo: "Shoes/adidas.svg", activeSize: 7},
+ {gradient: "linear-gradient(#D6D6D6,#606060)", color: "#606060", brand: "adidas", image: "Shoes/shoes1.png", Title: "Running Shoes", Color: "Black", price1: "£49", price2: "£84", off: "Shoes/50Off.svg", display: "flex", logo: "Shoes/adidas.svg", activeSize: 9},
+ {gradient: "linear-gradient(#A7A7A7,#666666)", color: "#666666", brand: "adidas", image: "Shoes/shoes2.png", Title: "Running Shoes", Color: "Grey", price1: "£71", price2: "£89", off: "Shoes/50Off.svg", display: "none", logo: "Shoes/adidas.svg", activeSize: 7},
  {gradient: "linear-gradient(#DEDEDE,#898989)", color: "#898989", brand: "adidas", image: "Shoes/shoes3.png", Title: "Running Shoes", Color: "White", price1: "£61", price2: "£84", off: "Shoes/25Off.svg", display: "flex", logo: "Shoes/adidas.svg", activeSize: 6},
  {gradient: "linear-gradient(#4799FF,#004DAD)", color: "#004DAD", brand: "nike", image: "Shoes/shoes4.png", Title: "Air Jordan 1", Color: "Royal Blue", price1: "£112", price2: "£149", off: "Shoes/25Off.svg", display: "flex", logo: "Shoes/nike.svg", activeSize: 8},
  {gradient: "linear-gradient(#FFEB52,#AD9A00)", color: "#AD9A00", brand: "nike", image: "Shoes/shoes5.png", Title: "Air Jordan 1", Color: "Yellow", price1: "£129", price2: "£149", off: "Shoes/50Off.svg", display: "none", logo: "Shoes/nike.svg", activeSize: 9},
