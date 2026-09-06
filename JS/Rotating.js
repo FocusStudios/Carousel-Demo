@@ -102,6 +102,8 @@ slides.forEach((slide,index) => {
 
 const Slides = document.querySelectorAll(".slide");
 
+slider.style.animation = "Rotate 18s linear infinite";
+
 function demo() {
 
 const cards = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 11];
