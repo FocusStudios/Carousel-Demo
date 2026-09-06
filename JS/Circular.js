@@ -43,6 +43,8 @@ sections.forEach(section => {
 
 });
 
+carousel.style.animation = "Rotate 24s linear forwards infinite";
+
 const buttons = document.querySelectorAll(".wrapper .section");
 
 buttons.forEach((button,index) => {
