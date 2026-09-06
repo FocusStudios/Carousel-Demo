@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<title>Basic Carousel - Style 1</title>
+
+<style>
+
+html {
+-webkit-tap-highlight-color:transparent;
+scroll-behavior:smooth;}
+
+* {
+margin:0;
+padding:0;
+transition:0.5s;
+box-sizing:border-box;
+font-family:Arial, Sans-serif;
+user-select:none;}
+
+body {
+width:100vw;
+height:100vh;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.main-container {
+position:absolute;
+width:330px;
+height:330px;
+border-radius:20px;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+pointer-events:none;
+background:#FBF1E4;}
+
+.container {
+position:absolute;
+width:360px;
+padding:50px 0;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+gap:10px;
+transform:scale(0.6);}
+
+.logo {
+position:relative;
+width:60px;
+height:auto;}
+
+.slogan {
+position:relative;
+color:#001133;
+font-size:1rem;
+font-family: "Cormorant Garamond", serif;}
+
+.wrapper {
+position:relative;
+width:360px;
+height:430px;
+display:flex;
+align-items:center;
+justify-content:center;
+margin-top:-20px;}
+
+.carousel {
+position:absolute;
+left:0;
+height:370px;
+padding:0 40px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:25px;
+transition:0.5s;}
+
+.card {
+position:relative;
+width:280px;
+height:100%;
+border-radius:15px;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#fff;
+box-shadow:0 5px 10px rgba(163,92,0,0.2);}
+
+.card .image {
+position:absolute;
+top:0;
+width:100%;
+height:240px;
+object-fit:cover;}
+
+.card .details {
+position:absolute;
+bottom:0;
+width:100%;
+padding:15px;
+display:flex;
+flex-direction:column;
+gap:10px;}
+
+.card .info {
+position:relative;
+display:flex;}
+
+.card .info .price {
+position:relative;
+display:flex;
+margin-left:auto;}
+
+.card .info .price span {
+margin-top:15%;}
+
+.card .location {
+position:relative;
+display:flex;
+gap:4px;}
+
+.card .location img {
+position:relative;
+width:10px;
+height:10px;}
+
+.card .title, .card .info .price h1, .card .reviews .review h1 {
+position:relative;
+color:#001133;
+font-size:0.9rem;
+font-weight:1000;}
+
+.card .title {
+font-family: "Cormorant Garamond", serif;}
+
+.card .info .price h1 {
+color:#DD9A13;}
+
+.card .location h2, .card .price span, .card .reviews .review span, .card .features li span, .subtitle {
+position:relative;
+color:#666;
+font-size:0.5rem;
+font-weight:400;}
+
+.card .features {
+position:relative;
+display:flex;
+gap:10px;
+list-style:none;}
+
+.card .features li {
+position:relative;
+display:flex;
+align-items:center;
+gap:5px;}
+
+.card .features li .icon {
+position:relative;
+width:10px;
+height:10px;}
+
+.card .reviews {
+position:relative;
+display:flex;}
+
+.card .review {
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:5px;}
+
+.card .review h1, .card .review span {
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.card .review span {
+margin-top:3%;}
+
+.card .reviews .review img {
+position:relative;
+width:14px;
+height:14px;
+margin-top:-2%;}
+
+.card .reviews button {
+position:relative;
+right:0;
+padding:7px 9px;
+border-radius:30px;
+display:flex;
+gap:2px;
+transition:0.3s;
+background:#001133;
+border:none;
+margin-left:auto;
+box-shadow:0 3px 6px rgba(0,0,0,0.2);}
+
+.card .reviews button .arrow {
+position:relative;
+width:15px;
+height:15px;}
+
+.card .reviews button span {
+position:relative;
+padding-left:7px;
+color:#fff;
+font-size:0.5rem;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.card .reviews button:active {
+transform:scale(0.85);}
+
+.card .badge {
+position:absolute;
+top:15px;
+left:15px;
+padding:7px 9px;
+border-radius:30px;
+display:flex;
+gap:5px;
+box-shadow:0 2px 4px rgba(0,0,0,0.2);}
+
+.card .badge img {
+position:relative;
+width:10px;
+height:10px;}
+
+.card .badge span {
+color:#fff;
+font-size:0.5rem;
+height:10px;
+padding-right:4px;
+display:flex;
+align-items:center;}
+
+.arrows {
+position:absolute;
+width:320px;
+height:45px;}
+
+.arrows img {
+position:absolute;
+width:45px;
+height:45px;
+border-radius:50%;
+background:#fff;
+transition:opacity 0s 0.3s;
+box-shadow:0 2px 4px rgba(0,0,0,0.2);}
+
+.arrows img.active {
+animation:click 0.3s forwards;}
+
+.arrows .left {
+left:0;
+opacity:0;}
+
+.arrows .right {
+right:0;}
+
+@keyframes click {
+0% {transform:scale(1);}
+50% {transform:scale(0.8);}
+100% {transform:scale(1);}}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+<div class="container">
+
+<img class="logo" src="Hotels/Hotel.svg">
+<h1 class="slogan">Stay in Comfort, Anywhere</h1>
+<h2 class="subtitle">Handpicked hotels for an exceptional stay</h2>
+
+<section class="wrapper">
+
+<ul class="carousel"></ul>
+
+<div class="arrows">
+<img class="left" src="Hotels/left-arrow.svg">
+<img class="right" src="Hotels/right-arrow.svg">
+</div>
+
+</section>
+
+</div>
+
+</div>
+
+<script src="JS/Basic1.js"></script>
+
+</body>
+
+</html>

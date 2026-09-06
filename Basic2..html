@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<title>Basic Carousel - Style 2</title>
+
+<style>
+
+html {
+-webkit-tap-highlight-color:transparent;
+scroll-behavior:smooth;}
+
+* {
+margin:0;
+padding:0;
+transition:0.3s;
+box-sizing:border-box;
+user-select:none;
+font-family:Arial, Sans-serif;}
+
+body {
+width:100vw;
+height:100vh;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;}
+
+.main-container {
+position:absolute;
+width:330px;
+height:330px;
+border-radius:20px;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+pointer-events:none;
+background:linear-gradient(to bottom right, #FF0099, #512BE8);}
+
+.container {
+position:absolute;
+width:440px;
+padding:50px 0;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+gap:10px;
+transform:scale(0.75);}
+
+.logo {
+position:relative;
+width:60px;
+height:auto;}
+
+.slogan, .subtitle {
+position:relative;
+color:#fff;
+font-size:1rem;
+font-family: "Montserrat", sans-serif;}
+
+.subtitle {
+opacity:0.7;
+font-weight:400;
+font-size:0.7rem;}
+
+.wrapper {
+position:relative;
+width:440px;
+height:280px;
+display:flex;
+align-items:center;
+justify-content:center;
+margin-top:10px;}
+
+.carousel {
+position:absolute;
+top:0;
+left:0;
+height:250px;
+padding:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+transition:0.5s;}
+
+.card {
+position:relative;
+width:150px;
+height:100%;
+border-radius:15px;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#fff;
+box-shadow:0 5px 10px rgba(0,0,0,0.3);}
+
+.card .details {
+position:absolute;
+width:100%;
+padding:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+gap:12px;}
+
+.card .circle {
+position:relative;
+width:70px;
+height:70px;
+object-fit:cover;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(to bottom right, #FF0099, #512BE8);}
+
+.card .image {
+position:relative;
+width:65px;
+height:65px;
+object-fit:cover;
+border-radius:50%;
+outline:1px solid #fff;}
+
+.card .name {
+position:relative;
+display:flex;
+gap:5px;}
+
+.card h1 {
+position:relative;
+color:#001133;
+font-size:0.7rem;
+font-weight:1000;}
+
+.card h2 {
+position:relative;
+color:#A3A3A3;
+font-size:0.5rem;
+font-weight:400;}
+
+.card .line {
+position:relative;
+width:70%;
+height:0.5px;
+border-radius:1px;
+background:#A3A3A3;
+opacity:0.3;}
+
+.card .badge {
+position:relative;
+padding:8px 10px;
+border-radius:30px;
+display:flex;
+gap:5px;
+background:#F3F2F6;}
+
+.card .badge img {
+position:relative;
+width:10px;
+height:10px;}
+
+.card .badge span {
+color:#001133;
+font-size:0.5rem;
+height:10px;
+padding-right:4px;
+display:flex;
+align-items:center;}
+
+.indicator {
+position:absolute;
+bottom:0;
+height:10px;
+list-style:none;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:6px;}
+
+.dot {
+position:relative;
+width:6px;
+height:6px;
+border-radius:10px;
+background:#fff;
+opacity:0.3;
+transition:0.3s;
+cursor:pointer;
+box-shadow:0 2px 4px rgba(0,0,0,0.3);}
+
+.dot.active {
+position:relative;
+width:20px;
+height:10px;
+opacity:1;
+cursor:default;}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+<div class="container">
+
+<img class="logo" src="Profiles/Logo.svg">
+<h1 class="slogan">Meet Our Experts</h1>
+<h2 class="subtitle">Talented Professionals delivering exceptional results</h2>
+
+<section class="wrapper">
+
+<ul class="carousel"></ul>
+
+<ul class="indicator"></ul>
+
+</section>
+
+</div>
+
+</div>
+
+<script src="JS/Basic2.js"></script>
+
+</body>
+
+</html>
