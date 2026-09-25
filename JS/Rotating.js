@@ -106,7 +106,7 @@ slider.style.animation = "Rotate 18s linear infinite";
 
 function demo() {
 
-const cards = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 10, 11];
+const cards = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 11, 10];
 
 cards.forEach((card, i) => {
 
