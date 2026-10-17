@@ -42,7 +42,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 pointer-events:none;
-background:linear-gradient(to bottom right, #FF0099, #512BE8);}
+background:#F7F8FE;}
 
 .container {
 position:absolute;
@@ -60,14 +60,25 @@ position:relative;
 width:60px;
 height:auto;}
 
-.slogan, .subtitle {
+.slogan {
 position:relative;
-color:#fff;
+display:flex;
+gap:5px;}
+
+.slogan h1, .subtitle {
+position:relative;
 font-size:1rem;
 font-family: "Montserrat", sans-serif;}
 
+.slogan h1:nth-child(2) {
+color:transparent;
+background:linear-gradient(to right, #FF0099, #512BE8);
+-webkit-background-clip:text;
+background-clip:text;}
+
 .subtitle {
 opacity:0.7;
+color:#263577;
 font-weight:400;
 font-size:0.7rem;}
 
@@ -102,7 +113,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 background:#fff;
-box-shadow:0 5px 10px rgba(0,0,0,0.3);}
+box-shadow:0 0 20px rgba(188, 186, 246, 0.6);}
 
 .card .details {
 position:absolute;
@@ -194,16 +205,16 @@ position:relative;
 width:6px;
 height:6px;
 border-radius:10px;
-background:#fff;
 opacity:0.3;
 transition:0.3s;
 cursor:pointer;
-box-shadow:0 2px 4px rgba(0,0,0,0.3);}
+box-shadow:0 2px 4px rgba(188, 186, 246, 1);
+background:linear-gradient(to right, #FF0099, #512BE8);}
 
 .dot.active {
 position:relative;
 width:20px;
-height:10px;
+height:8px;
 opacity:1;
 cursor:default;}
 
@@ -218,7 +229,12 @@ cursor:default;}
 <div class="container">
 
 <img class="logo" src="Profiles/Logo.svg">
-<h1 class="slogan">Meet Our Experts</h1>
+
+<div class="slogan">
+ <h1>Meet Our</h1>
+ <h1>Experts</h1>
+</div>
+
 <h2 class="subtitle">Talented Professionals delivering exceptional results</h2>
 
 <section class="wrapper">
