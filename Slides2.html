@@ -40,7 +40,9 @@ overflow:hidden;
 display:flex;
 align-items:center;
 justify-content:center;
-background:linear-gradient(#FBD2DA,#FF99AD);}
+background-image:url(Flowers/background.png);
+background-size:cover;
+background-position:center;}
 
 .wrapper {
 width:360px;
@@ -81,7 +83,9 @@ transition:0.5s;
 background:url("Flowers/card.png");
 background-size:cover;
 background-position:center;
-box-shadow:0 5px 15px rgba(128,0,43,0.3);}
+box-shadow:0 5px 15px rgba(128,0,43,0.3);
+border:1px solid rgba(255,255,255,0.5);
+box-shadow:0 0 15px rgba(240,137,157,0.5);}
 
 .card .image {
 position:absolute;
@@ -100,12 +104,12 @@ position:absolute;
 right:0;
 width:130px;
 height:100%;
-padding:45px 15px 15px 15px;
+padding:40px 15px 15px 15px;
 display:flex;
 align-items:center;
 justify-content:center;
 flex-direction:column;
-gap:8px;
+gap:10px;
 opacity:0;
 transition:0.2s;}
 
@@ -131,8 +135,9 @@ font-family: "Tangerine", cursive;}
 
 .card .decoration {
 position:relative;
-width:100px;
-height:5px;
+width:90%;
+height:auto;
+object-fit:cover;
 opacity:0;
 transform:translateY(5px);}
 
@@ -145,6 +150,7 @@ font-family: "Cormorant Garamond", serif;}
 
 .card p {
 opacity:0;
+width:90%;
 padding:0 5px;
 line-height:12px;
 transform:translateY(5px);}
