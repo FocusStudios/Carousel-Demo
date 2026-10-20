@@ -129,7 +129,7 @@ transform:scale(0.7);}
 .slider {
 position:absolute;
 top:25px;
-width:300px;
+width:330px;
 height:220px;
 border-radius:10px;
 list-style:none;
@@ -183,7 +183,8 @@ width:100%;
 padding:25px;
 display:flex;
 flex-direction:column;
-gap:10px;}
+gap:10px;
+background:linear-gradient(transparent 50%, rgba(0,0,0,0.6) 100%);}
 
 .details h1 {
 position:relative;
@@ -213,7 +214,8 @@ list-style:none;
 display:flex;
 align-items:center;
 justify-content:start;
-gap:10px;}
+gap:10px;
+transform:translateX(-10%) scale(0.8);}
 
 .details ul li {
 position:relative;
@@ -367,26 +369,6 @@ transition:0.4s cubic-bezier(0,0,0.5,2) 2.7s;}
 opacity:1;
 transition:0.4s 3s;}
 
-.arrows {
-position:absolute;
-top:112.5px;
-width:345px;
-height:45px;
-display:none;
-gap:255px;}
-
-.arrows img {
-position:relative;
-width:45px;
-height:45px;
-border-radius:50%;
-cursor:pointer;
-object-fit:cover;
-transition:0.3s;
-background:rgba(0,0,0,0.2);
-backdrop-filter:blur(10px);
-box-shadow:0 3px 6px rgba(0,0,0,0.15);}
-
 </style>
 
 </head>
@@ -421,14 +403,6 @@ box-shadow:0 3px 6px rgba(0,0,0,0.15);}
 <div class="container">
 
 <ul class="slider"></ul>
-
-<section class="arrows">
-
-<img class="left" src="Courses/left-arrow.svg">
-
-<img class="right" src="Courses/right-arrow.svg">
-
-</section>
 
 </div>
 
