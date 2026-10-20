@@ -134,37 +134,13 @@ slides.forEach((slide,index) => {
 });
 
 
-slider.addEventListener("click", (e) => {
+function click() {
 
-const slide = e.target.closest(".slide");
-
-if (!slide) return;
-
-let Slides = slider.querySelectorAll(".slide");
-
-if (slide === Slides[2]) {
-
+let Slides = document.querySelectorAll(".slide");
 slider.appendChild(Slides[0]);
 updateTheme();
 
 }
 
-});
 
-right.addEventListener("click",() => {
-
-let Slides = document.querySelectorAll(".slide");
-slider.appendChild(Slides[0]);
-updateTheme();
-
-});
-
-left.addEventListener("click",() => {
-
-let Slides = document.querySelectorAll(".slide");
-slider.prepend(Slides[Slides.length - 1]);
-updateTheme();
-
-});
-
-setInterval(() => {right.click();},4500);
+setInterval(() => {click();},4500);
