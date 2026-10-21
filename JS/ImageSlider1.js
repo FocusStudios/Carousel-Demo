@@ -21,7 +21,7 @@ hexagons.forEach(hexagon => {
 
 const themes = [
 
- {color1:"#fb00ff", color2:"#b404ff", Background:"#2F003D", Shadow:"rgba(255,60,255,0.6)"},
+ {color1:"#fb00ff", color2:"#b404ff", Background:"#2F003D", Shadow:"rgba(255,130,255,1)"},
  {color1:"#7226FF", color2:"#4326FF", Background:"#1C0A4A", Shadow:"rgba(130,60,255,0.6)"},
  {color1:"#977DFF", color2:"#0033FF", Background:"#00114D", Shadow:"rgba(66,104,255,0.6)"},
  {color1:"#00B9FF", color2:"#00FF92", Background:"#002233", Shadow:"rgba(0,185,255,0.6)"},
