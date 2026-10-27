@@ -71,4 +71,10 @@ slides.forEach((slide,index) => {
 });
 
 
-setInterval(() => {right.click();},2000);
+setInterval(() => {
+ 
+ let Slides = document.querySelectorAll(".slide");
+
+ slider.append(Slides[0]);
+ 
+ },2000);
