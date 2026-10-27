@@ -1,5 +1,3 @@
-const left = document.querySelector(".left");
-const right = document.querySelector(".right");
 const slider = document.querySelector(".slider");
 
 const slides = [
@@ -72,23 +70,5 @@ slides.forEach((slide,index) => {
 
 });
 
-
-right.addEventListener("click", () => {
-
-let Slides = document.querySelectorAll(".slide");
-
-slider.append(Slides[0]);
-
-});
-
-
-left.addEventListener("click", () => {
-
-let Slides = document.querySelectorAll(".slide");
-
-slider.prepend(Slides[Slides.length - 1]);
-
-
-});
 
 setInterval(() => {right.click();},2000);
