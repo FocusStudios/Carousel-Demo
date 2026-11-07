@@ -2,9 +2,9 @@ const carousel = document.querySelector(".carousel");
 
 const slides = [
 
- {width: "70%", number: "S1 active", image: "Flowers/bouquet1.png", badge: "flex", title: "Pink Roses",  text: "Ftesh & Cheerful", description: "Delicate pink roses with a charming touch.", price: "$24"},
- {width: "18%", number: "S2", image: "Flowers/bouquet2.png", badge: "none", title: "Red Roses",  text: "Passionate & Romantic", description: "Rich red roses for expressing true love.", price: "$31"},
- {width: "12%", number: "S3", image: "Flowers/bouquet3.png", badge: "flex", title: "White Roses",  text: "Pure & Elegant", description: "Elegant white roses for pure moments.", price: "$27"}
+ {width: "70%", number: "S1 active", image: "Roses/bouquet1.png", badge: "flex", title: "Pink Roses",  text: "Ftesh & Cheerful", description: "Delicate pink roses with a charming touch.", price: "$24"},
+ {width: "18%", number: "S2", image: "Roses/bouquet2.png", badge: "none", title: "Red Roses",  text: "Passionate & Romantic", description: "Rich red roses for expressing true love.", price: "$31"},
+ {width: "12%", number: "S3", image: "Roses/bouquet3.png", badge: "flex", title: "White Roses",  text: "Pure & Elegant", description: "Elegant white roses for pure moments.", price: "$27"}
  
 ];
 
@@ -18,7 +18,7 @@ slides.forEach((slide,index) => {
     <img class="image" src="${slide.image}">
 
     <div class="badge" style="display:${slide.badge};">
-     <img src="Flowers/Icon.svg">
+     <img src="Roses/Icon.svg">
      <span>New</span>
     </div>
 
@@ -26,7 +26,7 @@ slides.forEach((slide,index) => {
 
      <h1>${slide.title}</h1>
      <h2>${slide.text}</h2>
-     <img class="decoration" src="Flowers/decoration.svg">
+     <img class="decoration" src="Roses/decoration.svg">
      <p>${slide.description}</p>
 
      <div class="price">
