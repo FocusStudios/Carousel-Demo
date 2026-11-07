@@ -35,7 +35,7 @@ slides.forEach((slide,index) => {
 
      <div class="button-container">
       <button>
-       <img src="Flowers/bag.svg">
+       <img src="Roses/bag.svg">
       </button>
      </div>
 
