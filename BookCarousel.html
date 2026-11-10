@@ -45,26 +45,32 @@ pointer-events:none;
 overflow:hidden;
 background:#FCDFC0;}
 
-.background {
-position:absolute;
-width:auto;
-height:330px;
-object-fit:cover;}
-
 .wrapper {
 position:relative;
 width:800px;
 height:400px;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
+flex-direction:column;
+gap:10px;
 pointer-events:none;
 transform:scale(0.5);
 transition:0.4s cubic-bezier(0.5,0,0.5,1);}
 
+.slogan {
+font-weight:800;
+font-size:1.2rem;
+color:#402000;}
+
+.book-icon {
+position:relative;
+width:50px;
+height:50px;}
+
 .carousel {
 position:relative;
-padding:10px 10px 50px 10px;
+padding:10px;
 display:flex;
 align-items:end;
 justify-content:center;
@@ -271,9 +277,11 @@ transform:scale(0.85);}
 
 <section class="container">
 
-<img class="background" src="Books/background.png">
-
 <div class="wrapper">
+
+<img class="book-icon" src="Books/book.png">
+
+<h1 class="slogan">Discover Your Next Favorite</h1>
 
 <ul class="carousel"></ul>
 
